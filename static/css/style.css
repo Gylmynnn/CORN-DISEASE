@@ -1,0 +1,159 @@
+/* Main container */
+
+
+.morphology-section {
+    margin-top: 20px;
+  }
+  .morphology-images {
+    display: flex;
+    gap: 20px;
+  }
+  .morph-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 100px;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+/* Layout for left and right containers */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Left container for input file and submit button */
+.left-container {
+    flex: 1;
+    /* min-width: 300px; Adjust based on your design */
+    background-color: #1a1a1a;
+    padding-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-upload input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #FDCB82;
+    background-color: #121212;
+    color: #FDCB82;
+    border-radius: 5px;
+}
+
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #FDCB82;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #121212;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+
+  input[type=file]::file-selector-button:hover {
+    background: #E0A05A;
+  }
+
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #FDCB82;
+    color: #121212;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #E0A05A;
+}
+
+/* Right container for image preview and result */
+.right-container {
+    flex: 1;
+    min-width: 300px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.image-preview-container {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 400px;
+    overflow: hidden;
+    border: 2px dashed #FDCB82;
+    border-radius: 10px;
+}
+
+.image-preview {
+    object-fit: cover;
+}
+
+.result {
+    margin-top: 20px;
+    color: #FDCB82;
+}
+
+.prediction-text {
+    font-weight: bold;
+}
+
+.confidence-text {
+    font-size: 1.2em;
+    color: #58D68D; /* Green for confidence */
+}
+
+/* Dark Mode Styling */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+
+    .container {
+        background-color: #1f1f1f;
+    }
+
+    .submit-btn {
+        background-color: #FDCB82;
+        color: #121212;
+    }
+
+    .submit-btn:hover {
+        background-color: #f39c12;
+    }
+}
