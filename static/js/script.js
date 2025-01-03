@@ -9,7 +9,7 @@ imageInput.addEventListener("change", function (event) {
       const imgElement = document.createElement("img");
       imgElement.src = e.target.result;
       imgElement.classList.add("image-preview");
-      imagePreviewContainer.innerHTML = ""; // Clear previous preview
+      imagePreviewContainer.innerHTML = "";
       imagePreviewContainer.appendChild(imgElement);
     };
     reader.readAsDataURL(file);
