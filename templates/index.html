@@ -1,72 +1,70 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../static/css/style.css" />
-    <title>Corn Disease Prediction</title>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1 class="title">Prediksi Penyakit Daun Jagung</h1>
-    </header>
 
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="stylesheet" href="../static/css/style.css" />
+   <title>Corn Disease Prediction</title>
+</head>
+
+<body>
+   <header>
+    <img src="/static/uploads/logo.png" alt="error" width="100" height="100">
+      <h1 class="title">Prediksi Penyakit Daun Jagung</h1>
+   </header>
+   <div class="container">
       <div class="main-content">
-        <!-- Left Container: File input and submit -->
-        <div class="left-container">
-          <form
-            action="/predict"
-            method="post"
-            enctype="multipart/form-data"
-            class="form-container"
-          >
-            <div class="file-upload">
-              <input
-                type="file"
-                name="file"
-                accept="image/*"
-                required
-                id="imageInput"
-              />
-            </div>
-            <div id="imagePreviewContainer" class="image-preview-container">
-              <!-- Image preview will be displayed here -->
-            </div>
-            <button type="submit" class="submit-btn">Prediksi</button>
-          </form>
-        </div>
+         <!-- Left Container: File input and submit -->
+         <div class="left-container">
+            <form action="/predict" method="post" enctype="multipart/form-data" class="form-container">
+               <div class="file-upload">
+                  <input type="file" name="file" accept="image/*" id="imageInput" />
+               </div>
+               <div id="imagePreviewContainer" class="image-preview-container">
+               </div>
+               <button type="submit" class="submit-btn">Prediksi</button>
+               {% if prediction %}
+               <a class="reset-btn" href="/">Reset</a>
+               {% endif %}
+            </form>
+         </div>
 
-        <div class="right-container">
+         <div class="right-container">
+            {% if error %}
+            <p class="error-msg">{{ error }}</p>
+            {% endif %}
             {% if prediction %}
             <div class="result">
-              <h2>
-                Hasil Prediksi:
-                <span class="prediction-text">{{ prediction }}</span>
-              </h2>
-              <h3>
-                Kepercayaan:
-                <span class="confidence-text">{{ confidence }}%</span>
-              </h3>
-              <div class="morphology-section">
-                <h3>Tahapan Morfologi:</h3>
-                <div class="morphology-images">
-                  <div>
-                    <h4>Resized:</h4>
-                    <img src="{{ resized_url }}" alt="Resized Image" class="morph-image" />
-                  </div>
-                  <div>
-                    <h4>Normalized:</h4>
-                    <img src="{{ normalized_url }}" alt="Normalized Image" class="morph-image" />
-                  </div>
-                </div>
-              </div>
+                <div class="morphology-section">
+                    <div class="morphology-images">
+                       <div>
+                          <h4>GAMBAR YANG DI PREDIKSI</h4>
+                          <img src="{{ normalized_url }}" alt="Normalized Image" class="morph-image" />
+                       </div>
+                    </div>
+                 </div>
+                 <div class="morphology-section">
+                    <div class="morphology-images">
+                       <div>
+                          <h4>DIAGRAM
+                          <img src="{{ chart_url }}" alt="Normalized Image" class="morph-image" />
+                       </div>
+                    </div>
+                 </div>
+               <h2>
+                  Hasil Prediksi:
+                  <span class="prediction-text">{{ prediction }}</span>
+               </h2>
+               <h3>
+                  Kepercayaan:
+                  <span class="confidence-text">{{ confidence }}%</span>
+               </h3>
             </div>
             {% endif %}
-          </div>
-    </div>
+         </div>
+      </div>
+      <script src="../static/js/script.js"></script>
+</body>
 
-    <script src="../static/js/script.js">
-    </script>
-  </body>
 </html>
