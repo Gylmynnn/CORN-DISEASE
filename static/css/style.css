@@ -4,15 +4,15 @@
 .morphology-section {
     margin-top: 20px;
   }
-  .morphology-images {
+  /* .morphology-images {
     display: flex;
     gap: 20px;
-  }
+  } */
   .morph-image {
-    width: 150px;
-    height: 150px;
-    object-fit: contain;
-    border: 1px solid #ccc;
+    width: 50%;
+    height: 250px;
+    object-fit: fill;
+    border: 2px solid #FDCB82;
     border-radius: 5px;
   }
 
@@ -26,9 +26,15 @@
     margin-top: 100px;
 }
 
-.title {
+/* .title {
     text-align: center;
     font-size: 2.5em;
+} */
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Layout for left and right containers */
@@ -58,6 +64,7 @@
 }
 
 .file-upload input {
+    width: 400px;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #FDCB82;
@@ -84,6 +91,9 @@ input[type=file]::file-selector-button {
 
 .submit-btn {
     padding: 10px 20px;
+    margin-bottom: 16px;
+    margin-top: 12px;
+    width: 70%;
     background-color: #FDCB82;
     color: #121212;
     font-size: 18px;
@@ -91,6 +101,21 @@ input[type=file]::file-selector-button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.reset-btn{
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 16px;
+    width: 40%;
+    background-color: #FDCB82;
+    color: #121212;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
 }
 
 .submit-btn:hover {
@@ -120,7 +145,8 @@ input[type=file]::file-selector-button {
 }
 
 .image-preview {
-    object-fit: cover;
+    object-fit: fill;
+    width: 100%;
 }
 
 .result {
